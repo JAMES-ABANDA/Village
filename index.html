@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eyene Solidarité</title>
+    <!-- Tailwind CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Section -->
+    <div id="hero"></div>
+
+    <!-- Features Section -->
+    <div id="features"></div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script>
+      // Chargement dynamique des partials
+      const loadHTML = (id, url) => {
+        fetch(url)
+          .then((response) => response.text())
+          .then((html) => (document.getElementById(id).innerHTML = html));
+      };
+      // Assurez-vous que le dossier 'components' existe au même niveau que index.html
+      loadHTML("header", "components/header.html");
+      loadHTML("hero", "components/hero.html");
+      loadHTML("features", "components/features.html");
+      loadHTML("footer", "components/footer.html");
+    </script>
+  </body>
+</html>
